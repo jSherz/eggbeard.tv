@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+    %meta{ chartset: 'utf-8' }
+    %meta{ content: 'IE=edge,chrome=1', http_equiv: 'X-UA-Compatible' }
+
+    %title
+      Eggbeard.tv
+
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:400,700|Slackey', 'normalize', 'all'
+
+  %body
+    = yield
+
+    #footer
+      Copyright
+      = Date.today.strftime('%Y')
+      Eggbeard. All eggs reserved. Font Awesome by
+      %a{href: 'http://fontawesome.io', title: 'Dave Gandy, creator of Font Awesome'}
+        Dave Gandy
+
+    = javascript_include_tag 'all'
