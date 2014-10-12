@@ -41,13 +41,13 @@
 # end
 
 # Methods defined in the helpers block are available in templates
-helpers do
-  def eggy_phrase
-    @phrases ||= YAML::load(open('phrases.yml'))
-
-    @phrases.sample
-  end
-end
+# helpers do
+#   def eggy_phrase
+#     @phrases ||= YAML::load(open('phrases.yml'))
+# 
+#     @phrases.sample
+#   end
+# end
 
 set :css_dir, 'stylesheets'
 
