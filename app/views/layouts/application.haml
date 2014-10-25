@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %title
+      Eggbeard.tv
+
+    %meta{ chartset: 'utf-8' }
+    %meta{ content: 'IE=edge,chrome=1', http_equiv: 'X-UA-Compatible' }
+
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:400,700|Slackey', 'application'
+    %link{ rel: 'shortcut icon', href: image_url('favicon.png') }
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+  %body
+    #header
+      %div
+        = image_tag('eggbeard-small.png', title: 'The Egg', alt: 'The Egg', id: 'the-egg')
+
+        %h1
+          Eggbeard.tv
+
+      %p#intro-text
+        "Rest in pepperoni pizza"
+
+    #navigation
+      %div
+        %ul
+          %li#twitch
+            %a{title: 'Eggbeard on Twitch', href: 'http://www.twitch.tv/eggbeard'}
+              %i.fa.fa-twitch
+          %li#twitter
+            %a{title: 'Eggbeard on Twitter', href: 'https://twitter.com/eggmcbeard'}
+              %i.fa.fa-twitter
+          %li#youtube
+            %a{title: 'Eggbeard on YouTube', href: 'https://www.youtube.com/user/xeggbeardx'}
+              %i.fa.fa-youtube
+
+    #main
+      %div
+        = yield

@@ -1,24 +1,36 @@
-# If you have OpenSSL installed, we recommend updating
-# the following line to use "https"
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem "middleman", "~>3.3.6"
+gem 'rails', '4.1.5'
+gem 'sqlite3'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'therubyracer', platforms: :ruby
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder', '~> 2.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'spring',        group: :development
+gem 'haml-rails'
+gem 'figaro', '>= 1.0.0.rc1'
 
-# Live-reloading plugin
-gem "middleman-livereload", "~> 3.1.0"
-
-# For faster file watcher updates on Windows:
-gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
-
-# Windows does not come with time zone data
-gem "tzinfo-data", platforms: [:mswin, :mingw]
-
-gem 'guard'
-gem 'guard-livereload'
-
-gem 'rubocop'
-
+# Styling
+gem 'sass-rails', '~> 4.0.3'
 gem 'bourbon'
 gem 'bitters'
 gem 'neat'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller', platforms: [:mri_21]
+  gem 'html2haml'
+  gem 'hub', require: nil
+  gem 'quiet_assets'
+  gem 'rails_layout'
+  gem 'guard'
+  gem 'guard-livereload'
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-rescue'
+end
