@@ -6,7 +6,7 @@ class EggBot
 
   listen_to :connect, method: :connect
   listen_to :join, method: :user_joined
-  listen_to :part, method: :user_left
+  listen_to :part, method: :user_parted
 
   def connect
     puts 'Connected to channel!'
@@ -15,21 +15,21 @@ class EggBot
   end
 
   def user_joined(m)
-    user = User.where(username: m.user.nick).first_or_create
-
-    unless user.active_visit
-      Visit.create!(user: user, start: DateTime.now)
-    end
+    user = user_for_message(m)
 
     # Lookup nick to see if sub
     # If sub, say hello
   end
 
-  def user_left(m)
-    puts m
-    # If user record doesn't exist, create one
-    # If visit record not found, create one
-    # Close visit record
-    # see m.channel? for if user is leaving server / network
+  def user_parted(m)
+    user = user_for_message(m)
+
+    user.end_active_visit
+  end
+
+  private
+
+  def user_for_message(message)
+    User.where(username: message.user.nick).first_or_create
   end
 end
