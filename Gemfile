@@ -19,6 +19,9 @@ gem 'bourbon'
 gem 'bitters'
 gem 'neat'
 
+# IRC bot
+gem 'irc', git: 'git@github.com:jeffpeterson/irc.git'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', platforms: [:mri_21]
