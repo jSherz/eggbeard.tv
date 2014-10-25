@@ -15,13 +15,15 @@ class EggBot
   end
 
   def user_joined(m)
+    user = User.where(username: m.user.nick).first_or_create
+
     # Lookup nick to see if sub
     # If sub, say hello
-    # If user record doesn't exist, create one
     # Start visit record if not found
   end
 
   def user_left(m)
+    puts m
     # If user record doesn't exist, create one
     # If visit record not found, create one
     # Close visit record
