@@ -1,26 +1,30 @@
-require 'irc/base'
+require 'cinch'
 
 # IRC bot to record user visits & say hello to subscribers
-class EggBot < IRC::Bot
-  host Figaro.env.irc_host
-  port Figaro.env.irc_port.to_i
-  nick Figaro.env.irc_nick
-  channel Figaro.env.irc_channel
+class EggBot
+  include Cinch::Plugin
 
-  on :join do
+  listen_to :connect, method: :connect
+  listen_to :join, method: :user_joined
+  listen_to :part, method: :user_left
+
+  def connect
+    puts 'Connected to channel!'
+    # Evaluate state of every user in channel
+    # Say hello
+  end
+
+  def user_joined(m)
     # Lookup nick to see if sub
     # If sub, say hello
     # If user record doesn't exist, create one
     # Start visit record if not found
-    say "Hi #{nick}"
   end
 
-  on :leave do
+  def user_left(m)
     # If user record doesn't exist, create one
     # If visit record not found, create one
     # Close visit record
-    say "Bye #{nick}"
+    # see m.channel? for if user is leaving server / network
   end
-
-  start!
 end

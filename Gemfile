@@ -20,7 +20,7 @@ gem 'bitters'
 gem 'neat'
 
 # IRC bot
-gem 'irc', git: 'git@github.com:jeffpeterson/irc.git'
+gem 'cinch'
 
 group :development do
   gem 'better_errors'
