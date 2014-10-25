@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
   validates_uniqueness_of :username
+
+  def active_visit
+    visits.where(end: nil).first
+  end
 end

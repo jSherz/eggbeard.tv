@@ -31,11 +31,25 @@ RSpec.describe EggBot do
     end
 
     it 'creates a Visit if required' do
+      user = User.create!(username: @username)
 
+      @plugin.user_joined(@join_message)
+
+      expect(user.active_visit).to_not be_nil
     end
 
     it "doesn't create a Visit when one exists" do
+      user = User.create!(username: @username)
+      visit = Visit.create!(user: user, start: DateTime.now)
 
+      # Check we've created an active visit
+      expect(user.active_visit).to_not be_nil
+      expect(user.active_visit.end).to be_nil
+
+      @plugin.user_joined(@join_message)
+
+      # Still the same last visit
+      expect(user.active_visit).to eq(visit)
     end
   end
 end
