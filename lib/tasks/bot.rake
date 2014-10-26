@@ -1,7 +1,7 @@
 require './bot/bot'
 
 namespace :bot do
-  task :start do
+  task start: :environment do
     bot = Cinch::Bot.new do
       configure do |c|
         c.server = Figaro.env.irc_host
@@ -16,3 +16,4 @@ namespace :bot do
     bot.start
   end
 end
+
