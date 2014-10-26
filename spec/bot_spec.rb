@@ -2,7 +2,11 @@ require 'bot_spec_helper'
 
 RSpec.describe EggBot do
   before :each do
-    @bot = Cinch::Bot.new
+    @bot = Cinch::Bot.new do
+      configure do |c|
+        c.nick = mock_bot_nick
+      end
+    end
     @plugin = EggBot.new @bot
 
     # Fake data
@@ -90,6 +94,21 @@ RSpec.describe EggBot do
 
         expect(User.first.username).to eq(@username)
       end
+    end
+  end
+
+  context 'is self-aware' do
+    it 'will not create a User for itself' do
+      bot_message = mock_empty_message(@bot.nick)
+      test_bot = bot_message.bot
+
+      expect(test_bot.nick).to_not be_nil
+
+      @plugin.user_joined(bot_message)
+      expect(User.where(username: test_bot.nick)).to be_empty
+
+      @plugin.user_parted(bot_message)
+      expect(User.where(username: test_bot.nick)).to be_empty
     end
   end
 end
