@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141025104806) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "visits", force: true do |t|
     t.integer  "user_id"
