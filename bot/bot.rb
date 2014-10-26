@@ -16,7 +16,7 @@ class EggBot
 
   def user_joined(m)
     user = user_for_message(m)
-
+    user.active_visit # Create a visit if required
     # Lookup nick to see if sub
     # If sub, say hello
   end
