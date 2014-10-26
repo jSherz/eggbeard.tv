@@ -1,5 +1,4 @@
 require 'cinch'
-require 'user'
 
 # IRC bot to record user visits & say hello to subscribers
 class EggBot
