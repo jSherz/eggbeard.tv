@@ -3,3 +3,9 @@ irc_port: '6667'
 irc_nick: 'KewlStreamerBot'
 irc_password: 'oauth:12345'
 irc_channel: '#my-kewl-streamer'
+
+database_host: 'localhost'
+database_user: 'eggybeard'
+database_pass: 'eggybeard'
+database_name: 'eggybeard'
+

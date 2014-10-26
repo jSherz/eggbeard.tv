@@ -19,3 +19,8 @@ test:
 
 production:
   <<: *default
+  host: <%= Figaro.env.database_host %>
+  database: <%= Figaro.env.database_name %>
+  username: <%= Figaro.env.database_user %>
+  password: <%= Figaro.env.database_pass %>
+
