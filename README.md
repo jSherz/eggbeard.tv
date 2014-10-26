@@ -8,6 +8,15 @@ Bot
 
 One half of this project is a bot that will run 24/7 in the Twitch EggBeard channel and record when users join and leave.
 
+### Configuration
+
+Create a `config/application.yml` file based on the `config/application.yml.example`.
+
+```
+bundle install
+rake bot:start
+```
+
 Website
 --------
 

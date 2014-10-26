@@ -1,0 +1,5 @@
+irc_host: 'irc.twitch.tv'
+irc_port: '6667'
+irc_nick: 'KewlStreamerBot'
+irc_password: 'oauth:12345'
+irc_channel: '#my-kewl-streamer'
