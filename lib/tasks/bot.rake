@@ -7,6 +7,7 @@ namespace :bot do
         c.server = Figaro.env.irc_host
         c.port = Figaro.env.irc_port
         c.nick = Figaro.env.irc_nick
+        c.password = Figaro.env.irc_password
         c.channels = [Figaro.env.irc_channel]
         c.plugins.plugins = [EggBot]
       end
