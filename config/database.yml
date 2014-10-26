@@ -1,5 +1,5 @@
 default: &default
-  adapter: mysql
+  adapter: mysql2
   host: localhost
   pool: 5
   timeout: 5000
