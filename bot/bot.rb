@@ -22,6 +22,7 @@ class EggBot
 
     # Lookup nick to see if sub
     # If sub, say hello
+    cleanup
   end
 
   def user_parted(m)
@@ -29,6 +30,8 @@ class EggBot
 
     user = user_for_message(m)
     user.end_active_visit
+
+    cleanup
   end
 
   private
@@ -39,5 +42,9 @@ class EggBot
 
   def this_bot?(message)
     message.user.nick == message.bot.nick
+  end
+
+  def cleanup
+     ActiveRecord::Base.clear_active_connections!
   end
 end
