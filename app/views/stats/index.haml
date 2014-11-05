@@ -1,13 +1,13 @@
 #stats-container
   %div
+    %ul#stats
+      = render_stat(@total_hours_watched) do
+        Hours of eggy madness watched
+      = render_stat(@total_users) do
+        Members of the #eggbeardmovement
+      = render_stat(@total_visits) do
+        Visits to #eggbeard
+
     %p.since
       Since
-      = succeed '...' do
-        = @first_visit.start.strftime("%d/%m/%Y at %H:%M")
-
-    %li#stats
-      %li
-        %p.number
-          = number_with_precision(@total_hours_watched, precision: 0, delimiter: ',')
-        %p
-          Hours of eggy madness watched
+      = @first_visit.start.strftime("%d/%m/%Y at %H:%M")
