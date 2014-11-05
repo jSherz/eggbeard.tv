@@ -1,0 +1,13 @@
+#stats-container
+  %div
+    %p.since
+      Since
+      = succeed '...' do
+        = @first_visit.start.strftime("%d/%m/%Y at %H:%M")
+
+    %li#stats
+      %li
+        %p.number
+          = number_with_precision(@total_hours_watched, precision: 0, delimiter: ',')
+        %p
+          Hours of eggy madness watched
