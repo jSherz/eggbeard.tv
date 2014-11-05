@@ -45,6 +45,6 @@ class EggBot
   end
 
   def cleanup
-     ActiveRecord::Base.clear_active_connections!
+    ActiveRecord::Base.clear_active_connections!
   end
 end
