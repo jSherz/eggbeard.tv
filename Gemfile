@@ -37,6 +37,7 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem 'rubocop'
 end
 
 group :test do
