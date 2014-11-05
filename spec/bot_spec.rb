@@ -76,7 +76,7 @@ RSpec.describe EggBot do
   context 'new user' do
     context 'when a user joins' do
       it 'creates a User if required' do
-        users = User.where(:username, @username)
+        users = User.where(username: @username)
         expect(users).to be_empty
 
         @plugin.user_joined(@empty_message)
@@ -87,7 +87,7 @@ RSpec.describe EggBot do
 
     context 'when a user leaves' do
       it 'creates the User if required' do
-        users = User.where(:username, @username)
+        users = User.where(username: @username)
         expect(users).to be_empty
 
         @plugin.user_parted(@empty_message)
