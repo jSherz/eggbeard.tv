@@ -45,3 +45,10 @@ group :test do
   gem 'rspec-rails'
 end
 
+# Deployment
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
+
+gem 'unicorn-rails'
