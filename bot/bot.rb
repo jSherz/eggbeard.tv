@@ -15,7 +15,7 @@ class EggBot
   end
 
   def user_joined(m)
-    return if this_bot?(m)
+    return if ignored_user?(m)
 
     user = user_for_message(m)
     user.active_visit # Create a visit if required
@@ -26,7 +26,7 @@ class EggBot
   end
 
   def user_parted(m)
-    return if this_bot?(m)
+    return if ignored_user?(m)
 
     user = user_for_message(m)
     user.end_active_visit
@@ -40,8 +40,8 @@ class EggBot
     User.where(username: message.user.nick).first_or_create
   end
 
-  def this_bot?(message)
-    message.user.nick == message.bot.nick
+  def ignored_user?(message)
+    User.ignored_users.include? message.user.nick
   end
 
   def cleanup

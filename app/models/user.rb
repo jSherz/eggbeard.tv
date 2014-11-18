@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
     visit.end = end_datetime
     visit.save
   end
+
+  def self.ignored_users
+    %w(eggbeard nightbot autoegg)
+  end
 end
