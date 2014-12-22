@@ -1,7 +1,7 @@
 # Pages that display viewer stats
 class StatsController < ApplicationController
   def index
-    @first_visit = get_cached('first_visit', proc { Visit.order(start: :desc).first })
+    @first_visit = get_cached('first_visit', proc { Visit.order(start: :asc).first })
     @total_hours_watched = get_cached('total_hours_watched', proc { Visit.total_hours })
     @total_users = get_cached('total_users', proc { User.count })
     @total_visits = get_cached('total_visits', proc { Visit.count })
